@@ -1,0 +1,466 @@
+import React, { useState, useEffect } from 'react';
+import { 
+  Menu, 
+  X, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  ChevronRight, 
+  Factory, 
+  ShieldCheck, 
+  Zap, 
+  Globe, 
+  Award, 
+  UserCheck, 
+  Clock, 
+  Settings, 
+  FileText, 
+  CheckCircle2, 
+  Cpu, 
+  Truck, 
+  Layers, 
+  Box, 
+  Video, 
+  Eye, 
+  Camera, 
+  CalendarCheck,
+  Map as MapIcon
+} from 'lucide-react';
+
+/**
+ * <!-- Chosen Palette: 工业简约蓝 (Industrial Minimalist Blue) -->
+ * <!-- Application Structure Plan: 
+ * 1. 导航栏：SEO友好导航。
+ * 2. Hero 区：核心 SEO 标题优化，针对“义乌吹塑加工”关键词进行布局。
+ * 3. 优势区：强化“加工定制”实力。
+ * 4. 流程区：打样到量产的可视化。
+ * 5. 信任区：视频看厂增强转化。
+ * 6. 页脚：本地化地址，提升本地搜索权重。
+ * -->
+ * <!-- Visualization & Content Choices: 
+ * - 嵌入页面标题逻辑，确保搜索收录效果。
+ * - 核心关键词“义乌吹塑加工”、“吹塑加工定制”在页面各处合理分布。
+ * - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. 
+ * -->
+ */
+
+const App = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('home');
+
+  // --- SEO 优化：设置页面标题 ---
+  useEffect(() => {
+    document.title = "义乌吹塑加工 | 吹塑加工定制 | 顺泉吹塑 - 20年源头工厂";
+  }, []);
+
+  const navigate = (page) => {
+    setActiveTab(page);
+    setIsMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
+  return (
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 selection:text-blue-700">
+      
+      {/* 顶部导航 */}
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-20 items-center">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('home')}>
+              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                S
+              </div>
+              <div>
+                <span className="text-xl font-black tracking-tight text-slate-800">顺泉吹塑</span>
+                <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-none italic">义乌吹塑加工 · 加工定制</span>
+              </div>
+            </div>
+
+            <div className="hidden md:flex items-center space-x-6">
+              {['home', 'products', 'strength', 'contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => navigate(item)}
+                  className={`text-sm font-bold transition-colors ${
+                    activeTab === item ? 'text-blue-600' : 'text-slate-500 hover:text-blue-500'
+                  }`}
+                >
+                  {item === 'home' ? '首页' : item === 'products' ? '产品展示' : item === 'strength' ? '生产实力' : '联系我们'}
+                </button>
+              ))}
+              <a href="tel:13676802150" className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center gap-2">
+                <Video size={16} /> 视频看厂
+              </a>
+            </div>
+
+            <div className="md:hidden flex items-center">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-slate-600">
+                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* 移动端菜单 */}
+      {isMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-20 bg-white z-40 p-6 space-y-4 animate-in slide-in-from-top duration-300">
+          {['home', 'products', 'strength', 'contact'].map((item) => (
+            <button
+              key={item}
+              onClick={() => navigate(item)}
+              className="block w-full text-left px-6 py-4 text-xl font-bold text-slate-700 hover:bg-blue-50 hover:text-blue-600 rounded-2xl"
+            >
+              {item === 'home' ? '首页' : item === 'products' ? '产品展示' : item === 'strength' ? '生产实力' : '联系我们'}
+            </button>
+          ))}
+          <a href="tel:13676802150" className="block w-full text-center bg-blue-600 text-white px-6 py-4 rounded-2xl text-xl font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2">
+            <Video size={20} /> 视频看厂 / 拨打电话
+          </a>
+        </div>
+      )}
+
+      <main className="pt-20">
+        {activeTab === 'home' && (
+          <>
+            {/* Hero Section - SEO 关键词加重区 */}
+            <section className="relative py-16 lg:py-28 overflow-hidden">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                  <div className="space-y-8 text-center lg:text-left">
+                    <div className="inline-flex items-center gap-4">
+                      <div className="px-4 py-2 bg-blue-50 text-blue-600 rounded-full text-xs font-bold tracking-wider flex items-center gap-2">
+                        <Zap size={14} /> 广东机器 · 义乌价格
+                      </div>
+                      <div className="px-4 py-2 bg-green-50 text-green-600 rounded-full text-xs font-bold tracking-wider flex items-center gap-2 animate-pulse">
+                        <Box size={14} /> 支持开模前3D打样
+                      </div>
+                    </div>
+                    {/* SEO H1 优化 */}
+                    <h1 className="text-5xl lg:text-6xl font-black text-slate-900 leading-tight tracking-tight">
+                      <span className="block mb-2">义乌吹塑加工</span>
+                      专业<span className="text-blue-600">吹塑加工定制</span>
+                      <span className="block mt-2 text-3xl font-bold text-slate-500">20年源头大厂 · 冯老板带队</span>
+                    </h1>
+                    <p className="text-xl text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                      顺泉吹塑专注PP/PE/EVA/PVC材质。配备15台广东通盛高速机，24小时不停机。我们提供开模前先3D打样看效果，再开模生产做大货服务，为您提供极具性价比的**义乌吹塑加工**方案。
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                      <button onClick={() => navigate('contact')} className="px-10 py-5 bg-blue-600 text-white rounded-2xl font-bold shadow-2xl hover:bg-blue-700 transition-all flex items-center justify-center gap-2 text-lg">
+                        在线申请加工定制 <ChevronRight size={20} />
+                      </button>
+                      <button onClick={() => navigate('strength')} className="px-10 py-5 bg-white border-2 border-slate-200 text-slate-700 rounded-2xl font-bold hover:bg-slate-50 transition-all text-lg">
+                        看厂实力展示
+                      </button>
+                    </div>
+                  </div>
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-blue-100 blur-[100px] opacity-30 rounded-full"></div>
+                    <div className="relative bg-white p-6 rounded-[2.5rem] shadow-2xl border border-slate-100">
+                      <img src="IMG_1035.jpg" alt="顺泉吹塑加工定制样板" className="w-full h-auto rounded-[2rem] object-cover" />
+                      <div className="absolute -bottom-6 -right-6 bg-blue-600 text-white p-6 rounded-3xl shadow-xl">
+                        <p className="text-[10px] text-slate-100 font-bold uppercase tracking-widest opacity-80 mb-1 tracking-widest">源头工厂实力</p>
+                        <p className="text-xl font-black tracking-tight">日用/派对/工业吹塑</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* 优势看板：SEO 辅助文本 */}
+            <section className="py-20 bg-slate-50">
+              <div className="max-w-7xl mx-auto px-4">
+                <div className="text-center mb-16 space-y-4">
+                  <h2 className="text-3xl font-black text-slate-900 italic underline decoration-blue-600 decoration-4 underline-offset-8 uppercase tracking-tight">专注吹塑加工定制核心实力</h2>
+                  <p className="text-slate-500 max-w-2xl mx-auto italic">顺泉吹塑：扎根义乌，服务全球。致力于为每一位客户提供高水准的吹塑加工服务。</p>
+                </div>
+                <div className="grid md:grid-cols-4 gap-6">
+                  {[
+                    { 
+                      title: '吹塑加工定制', 
+                      desc: '先通过3D打印确认外观，满意后再投入开模，确保加工定制零失误，让您更省心。',
+                      icon: <Box className="text-green-500" />,
+                      color: 'bg-green-50'
+                    },
+                    { 
+                      title: '广东高精机器', 
+                      desc: '15台广东通盛高精机，24小时不停转，出品一致性极高，无惧大货高标准质检。',
+                      icon: <Cpu className="text-blue-500" />,
+                      color: 'bg-blue-50'
+                    },
+                    { 
+                      title: '义乌极速发货', 
+                      desc: '坐拥义乌国际商贸城物流优势，7天出模，极速打样寄送。20年老师傅亲自坐镇。',
+                      icon: <Truck className="text-amber-500" />,
+                      color: 'bg-amber-50'
+                    },
+                    { 
+                      title: '全材质认证保障', 
+                      desc: 'PP/PE/EVA/PVC材质齐全。提供合规材质报告，长期承接欧美日韩出口贸易订单。',
+                      icon: <ShieldCheck className="text-slate-500" />,
+                      color: 'bg-slate-100'
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className="bg-white p-8 rounded-[2rem] border border-slate-100 hover:shadow-xl transition-all group">
+                      <div className={`w-14 h-14 ${item.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                        {item.icon}
+                      </div>
+                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* 流程展示区 */}
+            <section className="py-24">
+              <div className="max-w-7xl mx-auto px-4">
+                <div className="grid lg:grid-cols-2 gap-20 items-center">
+                  <div className="space-y-10">
+                    <div>
+                      <h2 className="text-4xl font-black text-slate-900 mb-4 tracking-tighter italic">顺泉速度 · 助力义乌吹塑加工</h2>
+                      <p className="text-slate-500 leading-relaxed text-lg italic">“在义乌，快就是硬道理。冯老板亲自跟单，3天画图、7天出模，帮您抢占市场先机。”</p>
+                    </div>
+                    <div className="space-y-4">
+                      {[
+                        { day: 'Day 1-3', action: '吹塑加工方案确认 + 3D打样', detail: '快速建模，为您展示实物比例与结构手感。' },
+                        { day: 'Day 4-10', action: '精密加工模具成型', detail: '高硬度合金模具，支持数百万次吹塑冲压。' },
+                        { day: 'Day 11-12', action: '打样确认与量产做大货', detail: '实样确认满意后，开启 15 台机器 24 小时大货生产。' }
+                      ].map((step, i) => (
+                        <div key={i} className="flex gap-6 group">
+                          <div className="flex flex-col items-center">
+                            <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-black text-xs shadow-lg shadow-blue-100 group-hover:scale-110 transition-transform">
+                              {step.day}
+                            </div>
+                            {i < 2 && <div className="w-0.5 h-16 bg-slate-100 my-1"></div>}
+                          </div>
+                          <div className="pt-1">
+                            <h4 className="text-lg font-bold text-slate-800">{step.action}</h4>
+                            <p className="text-sm text-slate-400">{step.detail}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div className="bg-slate-900 rounded-[3rem] p-12 text-white shadow-2xl relative overflow-hidden border border-white/5">
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-blue-600/20 blur-[60px] rounded-full"></div>
+                    <div className="relative z-10 space-y-8">
+                      <div className="flex items-center gap-3 text-blue-400">
+                        <Eye size={24} />
+                        <span className="text-sm font-black uppercase tracking-widest tracking-widest">诚信看厂 · 合作共赢</span>
+                      </div>
+                      <h3 className="text-3xl font-black leading-tight italic">诚邀实地考察<br />感受源头工厂加工实力</h3>
+                      <div className="space-y-6">
+                        <div className="flex gap-4 p-6 bg-white/5 rounded-2xl border border-white/10">
+                          <Video className="text-blue-400 shrink-0" size={28} />
+                          <div>
+                            <h4 className="font-bold text-lg">视频看厂服务</h4>
+                            <p className="text-sm text-slate-400 mt-1">支持微信高清视频，实时查看 15 台机器轰鸣现场及仓库万余样办。</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-4 p-6 bg-white/5 rounded-2xl border border-white/10">
+                          <MapIcon className="text-blue-400 shrink-0" size={28} />
+                          <div>
+                            <h4 className="font-bold text-lg">实地到厂考察</h4>
+                            <p className="text-sm text-slate-400 mt-1">浙江义乌上溪直达。欢迎带样板来谈，冯老板现场为您提供吹塑加工方案。</p>
+                          </div>
+                        </div>
+                      </div>
+                      <a href="tel:13676802150" className="flex items-center justify-center gap-2 w-full py-5 bg-blue-600 hover:bg-blue-700 rounded-2xl font-black text-lg transition-all shadow-xl shadow-blue-900/40">
+                         立即预约视频/实地看厂
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </>
+        )}
+
+        {/* 产品展示板块 */}
+        {activeTab === 'products' && (
+          <section className="py-20 animate-in fade-in duration-700">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="text-center mb-16 space-y-4">
+                <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tighter italic">义乌吹塑加工产品库</h2>
+                <p className="text-slate-500">20年吹塑经验积累，万款经典吹塑加工样办库</p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                {[
+                  { title: "派对节庆吹塑配件", desc: "造型复杂多变，色彩丰富，是欧美节日市场的首选加工件。", image: "IMG_1035.jpg" },
+                  { title: "日用/洗护环保瓶罐", desc: "主打PP/PE材质，耐酸碱密封好，支持各种**吹塑加工定制**要求。", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop" },
+                  { title: "人体模特及异型模具", desc: "大型高速机组加工，壁厚均匀度高，结实耐摔耐磨损。", image: "https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=600&auto=format&fit=crop" }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 hover:shadow-2xl transition-all group">
+                    <div className="aspect-[4/5] bg-slate-50 overflow-hidden relative">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all flex items-center justify-center text-center p-6">
+                        <button onClick={() => navigate('contact')} className="bg-white text-slate-900 px-8 py-3 rounded-full font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all shadow-xl">
+                          咨询加工定制价格
+                        </button>
+                      </div>
+                    </div>
+                    <div className="p-8">
+                      <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+                      <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 实力展示板块 */}
+        {activeTab === 'strength' && (
+          <section className="py-20 space-y-32 animate-in slide-in-from-bottom-4 duration-700">
+            <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
+                <h2 className="text-4xl font-black text-slate-900 leading-tight italic underline decoration-blue-600 decoration-4 underline-offset-8 tracking-tighter">义乌吹塑加工源头大厂</h2>
+                <div className="space-y-4 text-slate-500 leading-relaxed text-lg italic">
+                  <p>顺泉吹塑深耕行业20载，不仅是做货的工厂，更是您的吹塑顾问。我们拥有的 15 台广东通盛精密机组，是保证每一批大货品质的压舱石。</p>
+                  <p>在顺泉，我们坚持“**广东机器品质，义乌实惠价格**”。欢迎各位贸易商、品牌商带样板考察我们的加工实力。</p>
+                </div>
+                <div className="grid grid-cols-2 gap-8 pt-4 text-center">
+                  <div className="flex flex-col p-6 bg-slate-50 rounded-3xl border border-slate-100">
+                    <span className="text-3xl font-black text-slate-900 tracking-widest">15 台</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest pt-2">广东通盛高精机组</span>
+                  </div>
+                  <div className="flex flex-col p-6 bg-slate-50 rounded-3xl border border-slate-100">
+                    <span className="text-3xl font-black text-slate-900 tracking-widest">24/7</span>
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest pt-2">全时段满负荷生产</span>
+                  </div>
+                </div>
+              </div>
+              <div className="rounded-[3rem] overflow-hidden shadow-2xl relative group">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop" alt="顺泉吹塑车间实景" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* 联系我们板块 */}
+        {activeTab === 'contact' && (
+          <section className="py-20 animate-in fade-in duration-700">
+            <div className="max-w-7xl mx-auto px-4">
+              <div className="bg-slate-900 rounded-[3rem] text-white overflow-hidden shadow-2xl relative border border-white/5">
+                <div className="grid lg:grid-cols-2">
+                  <div className="p-12 lg:p-20 space-y-12">
+                    <div>
+                      <h2 className="text-5xl font-black mb-6 italic underline decoration-blue-600 decoration-4 underline-offset-8 tracking-tighter">联系顺泉冯老板</h2>
+                      <p className="text-slate-400 text-lg leading-relaxed italic">省去中间环节，直接对接义乌吹塑加工定制源头。24小时电话畅通。</p>
+                    </div>
+                    <div className="space-y-10">
+                      <div className="flex items-center gap-6 group cursor-pointer" onClick={() => window.open('tel:13676802150')}>
+                        <div className="w-16 h-16 bg-blue-600 rounded-[1.5rem] flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-transform">
+                          <Phone size={32} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] text-slate-500 font-black tracking-widest uppercase mb-1 tracking-[0.2em]">直拨电话/微信同号</p>
+                          <p className="text-3xl font-black">13676802150</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-6 group">
+                        <div className="w-16 h-16 bg-slate-800 rounded-[1.5rem] flex items-center justify-center text-blue-400 border border-slate-700">
+                          <Mail size={32} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] text-slate-500 font-black tracking-widest uppercase mb-1 tracking-[0.2em]">企业邮箱</p>
+                          <p className="text-xl font-bold italic">1729564591@qq.com</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-6 group">
+                        <div className="w-16 h-16 shrink-0 bg-slate-800 rounded-[1.5rem] flex items-center justify-center text-blue-400 border border-slate-700">
+                          <MapPin size={32} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] text-slate-500 font-black tracking-widest uppercase mb-1 tracking-[0.2em]">义乌工厂地址</p>
+                          <p className="text-lg font-bold text-slate-300">
+                            浙江省 义乌市 上溪镇<br />伟亚路11-1号 (顺泉吹塑)
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/5 p-12 lg:p-20 border-l border-white/5 backdrop-blur-sm flex flex-col justify-center">
+                    <div className="space-y-10">
+                      <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full text-xs font-bold tracking-widest uppercase">
+                        <Camera size={14} /> 真实工厂 · 透明加工
+                      </div>
+                      <h3 className="text-4xl font-black leading-tight text-white uppercase tracking-tighter">诚邀您通过视频<br />考察我们的吹塑实力</h3>
+                      
+                      <div className="space-y-8">
+                        <div className="group">
+                          <div className="flex items-center gap-4 mb-3">
+                            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white">
+                              <Video size={20} />
+                            </div>
+                            <h4 className="text-2xl font-bold italic tracking-tight">视频在线看厂</h4>
+                          </div>
+                          <p className="text-slate-400 leading-relaxed text-lg italic">
+                            随时添加冯老板微信，远程视频连线。我们将向您展示吹塑生产线、产品模具及完整的**吹塑加工定制**流程。
+                          </p>
+                        </div>
+
+                        <div className="group">
+                          <div className="flex items-center gap-4 mb-3">
+                            <div className="w-10 h-10 bg-slate-700 rounded-xl flex items-center justify-center text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                              <MapIcon size={20} />
+                            </div>
+                            <h4 className="text-2xl font-bold italic tracking-tight">实地到厂洽谈</h4>
+                          </div>
+                          <p className="text-slate-400 leading-relaxed text-lg italic">
+                            义乌本地实力源头厂家。欢迎实地调研工厂规模。我们坐落于义乌上溪伟亚路，期待与您的长期战略合作。
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="pt-6">
+                        <a href="tel:13676802150" className="inline-flex items-center gap-3 px-10 py-5 bg-white text-slate-900 rounded-2xl font-black text-xl hover:bg-blue-50 transition-all shadow-2xl">
+                          <CalendarCheck size={24} /> 预约看厂 / 洽谈合作
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
+      </main>
+
+      {/* 页脚 - 包含关键词锚点 */}
+      <footer className="bg-slate-50 border-t border-slate-100 py-20 mt-20">
+        <div className="max-w-7xl mx-auto px-4 text-center space-y-12">
+          <div className="flex flex-col items-center gap-6">
+            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-slate-800 font-black text-3xl shadow-sm border border-slate-100">S</div>
+            <div className="space-y-2">
+              <p className="text-lg font-black text-slate-900 uppercase tracking-[0.5em]">顺泉吹塑 · 20年工艺积淀</p>
+              <p className="text-xs text-slate-400 font-bold tracking-widest uppercase tracking-widest">
+                专业义乌吹塑加工厂商 · 提供深度吹塑加工定制方案 · 全球出口服务
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-wrap justify-center gap-10 text-[10px] text-slate-500 font-black uppercase tracking-[0.3em] tracking-widest">
+            <button onClick={() => navigate('strength')} className="hover:text-blue-600 transition-colors uppercase tracking-widest">生产规模展示</button>
+            <button onClick={() => navigate('products')} className="hover:text-blue-600 transition-colors uppercase tracking-widest">加工产品库</button>
+            <button onClick={() => navigate('contact')} className="hover:text-blue-600 transition-colors font-black text-blue-600 underline uppercase tracking-widest">预约义乌看厂</button>
+          </div>
+          <div className="pt-10 border-t border-slate-200/60 max-w-3xl mx-auto">
+            <p className="text-[10px] text-slate-300 leading-loose uppercase font-medium tracking-widest">
+              © 2026 SHUNQUAN BLOW MOLDING FACTORY. 
+              <br />主营：义乌吹塑加工、吹塑加工定制、异型吹塑件量产。
+              <br />浙江省义乌市上溪镇伟亚路11-1号 · 电话: 13676802150
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
